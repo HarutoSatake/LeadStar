@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Star
   - Wall
+  - Reflect
   layers:
   - Default
   - TransparentFX

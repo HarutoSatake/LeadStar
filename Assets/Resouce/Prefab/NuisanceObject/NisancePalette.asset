@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3bc44d0e1e714287b4312f04cef0bf1, type: 3}
+  m_Name: NisancePalette
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 646670124461342883, guid: 8f850010732c8c747a35b5f16df6af6d, type: 3}
+  - {fileID: 8350006296973790302, guid: 5fcf17a2781a2394ca27b2cc866b7d46, type: 3}
+  - {fileID: 4903748149794830348, guid: 056000f548346e4498968fcebdfdb3a1, type: 3}
+  - {fileID: 4737478007828982042, guid: a10f2923dc6af294f97b70c59a85682c, type: 3}
+  - {fileID: 9163328754495595434, guid: 29bf6223ef89ffe49b07383c35f86fc7, type: 3}
+  - {fileID: 1865665981211629658, guid: 8d115c87f2b38214bb45f7af5ffbab08, type: 3}
+  - {fileID: 1799944802099399358, guid: 88cd79ffae7a0964797ad5907f97b212, type: 3}
+  - {fileID: 7435024885405769068, guid: 3429367731e627e41a0c81e400b6b99b, type: 3}
+  - {fileID: 6021934397789384832, guid: 19ece8e81fa8957489eda545447201db, type: 3}
+  - {fileID: 4265537381273380522, guid: 700760b25d0477b43949e8a17330498a, type: 3}
+  prevFolder: 
