@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Stages/2-1.unity
     guid: 1ed279c3caf1c3547843213dacfe80f2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scene/TYFP.unity
     guid: ef8ae750d5361734b8e9b3c755b8efa5
   m_configObjects: {}
