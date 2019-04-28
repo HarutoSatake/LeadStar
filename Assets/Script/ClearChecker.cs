@@ -10,12 +10,12 @@ public class ClearChecker : MonoBehaviour
     [SerializeField] GameObject StarParticle = null;
     [SerializeField] GameObject Star = null;
     [SerializeField] GameObject Goal = null;
-    [SerializeField] GameObject R_Button = null;
-    [SerializeField] GameObject N_Button = null;
-    [SerializeField] GameObject S_Button = null;
-    [SerializeField] GameObject E_Button = null;
-    [SerializeField] GameObject B_Button = null;
-   
+    [SerializeField] GameObject Restart_Button = null;
+    [SerializeField] GameObject Next_Button = null;
+    [SerializeField] GameObject Stage_Button = null;
+    [SerializeField] GameObject Back_Button = null;
+    //[SerializeField] GameObject E_Button = null;
+
     int nowscene = 0;
     int nextscene = 0;
 
@@ -29,11 +29,11 @@ public class ClearChecker : MonoBehaviour
         ClearMesseage.SetActive(false);
         FailedMesseage.SetActive(false);
 
-        R_Button.SetActive(false);
-        N_Button.SetActive(false);
-        S_Button.SetActive(false);
-        E_Button.SetActive(false);
-        B_Button.SetActive(false);
+        Restart_Button.SetActive(false);
+        Next_Button.SetActive(false);
+        Stage_Button.SetActive(false);
+        //E_Button.SetActive(false);
+        Back_Button.SetActive(false);
     }
 
     // Update is called once per frame
@@ -54,17 +54,30 @@ public class ClearChecker : MonoBehaviour
         {
             ClearMesseage.SetActive(true);
 
-            N_Button.SetActive(true);
-            S_Button.SetActive(true);
-            E_Button.SetActive(true);
+            // ボタン活性化
+            Next_Button.SetActive(true);
+            Stage_Button.SetActive(true);
+            Restart_Button.SetActive(true);
+
+            // 位置調整
+            Restart_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, -155.0f);
+            Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -360.0f);
+            Next_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, 38.0f);
         }
+        // ゲーム失敗時
         if(Star.GetComponent<Stick_Star>().GetHP() <= 0)
         {
             FailedMesseage.SetActive(true);
 
-            R_Button.SetActive(true);
-            S_Button.SetActive(true);
-            E_Button.SetActive(true);
+            // ボタン活性化
+            Restart_Button.SetActive(true);
+            Stage_Button.SetActive(true);
+            //E_Button.SetActive(true);
+
+            // 位置調整
+            Restart_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, 38.0f);
+            Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -155.0f);
+
         }
     }
 
@@ -84,8 +97,17 @@ public class ClearChecker : MonoBehaviour
     {
 
     }
-    public void TitleCall()
+
+    //public void TitleCall()
+    //{
+    //    FadeManager.FadeOut(0);
+    //}
+
+    // RectTransForm.Position移動
+    Vector2 RectPos(GameObject _obj,float _x,float _y)
     {
-        FadeManager.FadeOut(0);
+        Vector2 pos = _obj.gameObject.GetComponent<RectTransform>().anchoredPosition;
+        pos = new Vector2(_x,_y);
+        return pos;
     }
 }
