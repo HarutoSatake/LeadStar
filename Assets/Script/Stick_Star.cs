@@ -49,23 +49,7 @@ public class Stick_Star : MonoBehaviour
 
         this.defaultScale = this.transform.lossyScale;
         // 音楽の取得
-        //s_reflect = GetComponent<AudioSource>();
-    }
-
-    // トリガーエンター
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // 屋根に当たったら跳ね返る処理
-        //if(collision.tag == "roof")
-        //{
-        //    // z角度を読み取って、180度回転して返す
-        //    Vector3 angle = this.transform.eulerAngles;
-
-        //    angle.z += 180.0f;
-
-        //    this.transform.rotation = Quaternion.Euler(angle.x, angle.y, angle.z);
-
-        //}
+        s_reflect = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +61,8 @@ public class Stick_Star : MonoBehaviour
         if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Reflect")
         {
             hp--;
+            // SEの再生
+            s_reflect.PlayOneShot(s_reflect.clip);
         }
         if(collision.gameObject.tag == "Wall")
         {
@@ -96,7 +82,7 @@ public class Stick_Star : MonoBehaviour
         
 
             
-            //s_reflect.PlayOneShot(s_reflect.clip);
+
             this.isBulletStart = false;
             
             P_flg = true;
@@ -140,10 +126,11 @@ public class Stick_Star : MonoBehaviour
         if (rigid2D.velocity != Vector2.zero && Star_Sp.activeSelf)
         {
             if(rigid2D.velocity.x > 0)
-                Star_Sp.transform.Rotate(0, 0, -10);
+                this.transform.Rotate(0, 0, -10);
             if(rigid2D.velocity.x < 0)
-                Star_Sp.transform.Rotate(0, 0, 10);
+                this.transform.Rotate(0, 0, 10);
         }
+
         // 画面の下で判定して初期化
         if (this.transform.position.y <= -15.0f || this.transform.position.y >= 15.0f || this.transform.position.x <= -10.0f || this.transform.position.x >= 10.0f || this.hp <= 0)
         {
