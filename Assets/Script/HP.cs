@@ -25,6 +25,6 @@ public class HP : MonoBehaviour
 
         hp = Star.GetComponent<Stick_Star>().GetHP();
 
-        this.HpText.text = "HP:" + hp;
+        this.HpText.text = "" + hp;
     }
 }

@@ -17,6 +17,9 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Star")
         {
+            // スターのオブジェクトを非アクティブ化
+            GameObject Star_sp = GameObject.Find("Star");
+            Star_sp.SetActive(false);
             //s_goal.PlayOneShot(s_goal.clip);
             clearflg = true;
         }

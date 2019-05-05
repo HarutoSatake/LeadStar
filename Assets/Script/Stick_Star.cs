@@ -137,9 +137,12 @@ public class Stick_Star : MonoBehaviour
             Particle.transform.position = Camera.main.ScreenToWorldPoint(a);
         }
         // 速度がある場合スター画像の方を回転させる
-        if (rigid2D.velocity != Vector2.zero)
+        if (rigid2D.velocity != Vector2.zero && Star_Sp.activeSelf)
         {
-            Star_Sp.transform.Rotate(0, 0, 10);
+            if(rigid2D.velocity.x > 0)
+                Star_Sp.transform.Rotate(0, 0, -10);
+            if(rigid2D.velocity.x < 0)
+                Star_Sp.transform.Rotate(0, 0, 10);
         }
         // 画面の下で判定して初期化
         if (this.transform.position.y <= -15.0f || this.transform.position.y >= 15.0f || this.transform.position.x <= -10.0f || this.transform.position.x >= 10.0f || this.hp <= 0)

@@ -19,9 +19,16 @@ public class ClickGenerator : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        // レンダラのマテリアルを破棄
+        var thisRender = this.GetComponent<Renderer>();
+        if(thisRender != null && thisRender.materials != null)
+        {
+            foreach(var m in thisRender.materials)
+            {
+                DestroyImmediate(m);
+            }
+        }
     }
 }
