@@ -29,6 +29,8 @@ public class Stick_Star : MonoBehaviour
     GameObject Start_Object = null;
     [SerializeField]
     GameObject ClickParticle = null;
+    [SerializeField]
+    GameObject Star_Sp = null;
 
     public Vector3 defaultScale = Vector3.zero;
 
@@ -108,8 +110,6 @@ public class Stick_Star : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         if (Input.GetMouseButtonDown(0) && !isBulletStart)
         {
             rigid2D.isKinematic = false;
@@ -136,8 +136,11 @@ public class Stick_Star : MonoBehaviour
             Vector3 a = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenpoint.z);
             Particle.transform.position = Camera.main.ScreenToWorldPoint(a);
         }
-
-
+        // 速度がある場合スター画像の方を回転させる
+        if (rigid2D.velocity != Vector2.zero)
+        {
+            Star_Sp.transform.Rotate(0, 0, 10);
+        }
         // 画面の下で判定して初期化
         if (this.transform.position.y <= -15.0f || this.transform.position.y >= 15.0f || this.transform.position.x <= -10.0f || this.transform.position.x >= 10.0f || this.hp <= 0)
         {
