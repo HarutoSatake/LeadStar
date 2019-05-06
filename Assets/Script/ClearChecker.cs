@@ -14,11 +14,12 @@ public class ClearChecker : MonoBehaviour
     [SerializeField] GameObject Next_Button = null;
     [SerializeField] GameObject Stage_Button = null;
     [SerializeField] GameObject Back_Button = null;
+    [SerializeField] GameObject BGM = null;
     //[SerializeField] GameObject E_Button = null;
 
     int nowscene = 0;
     int nextscene = 0;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class ClearChecker : MonoBehaviour
         Stage_Button.SetActive(false);
         //E_Button.SetActive(false);
         Back_Button.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -63,6 +65,9 @@ public class ClearChecker : MonoBehaviour
             Restart_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, -155.0f);
             Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -360.0f);
             Next_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, 38.0f);
+
+            
+            
         }
         // ゲーム失敗時
         if(Star.GetComponent<Stick_Star>().GetHP() <= 0)
@@ -88,10 +93,12 @@ public class ClearChecker : MonoBehaviour
     public void StageSelectButton()
     {
         FadeManager.FadeOut(1);
+        BGM.GetComponent<NoDestroyObj>().SetDestroy(true);
     }
     public void NextButton()
     {
         FadeManager.FadeOut(nextscene);
+        BGM.GetComponent<NoDestroyObj>().SetDestroy(true);
     }
     public void BuckButton()
     {

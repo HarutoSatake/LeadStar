@@ -32,8 +32,8 @@ public class NoDestroyObj : MonoBehaviour
     }
 
     // 
-    public void GoDestroy()
+    public void SetDestroy(bool _set)
     {
-        this.DesFlg = true;
+        this.DesFlg = _set;
     }
 }

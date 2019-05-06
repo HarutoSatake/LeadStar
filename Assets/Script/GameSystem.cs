@@ -7,11 +7,15 @@ public class GameSystem : MonoBehaviour
 {
     [SerializeField]
     GameObject MenuStar = null;
-    [SerializeField] GameObject ClickParticle = null;
+    [SerializeField]
+    GameObject ClickParticle = null;
+
+    float Percentage = 0.0f;
     private void Start()
     {
         FadeManager.FadeIn();
-        
+
+
     }
 
     private void Update()
