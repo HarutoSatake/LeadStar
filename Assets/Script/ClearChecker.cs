@@ -14,7 +14,7 @@ public class ClearChecker : MonoBehaviour
     [SerializeField] GameObject Next_Button = null;
     [SerializeField] GameObject Stage_Button = null;
     [SerializeField] GameObject Back_Button = null;
-    [SerializeField] GameObject BGM = null;
+     GameObject BGM = null;
     //[SerializeField] GameObject E_Button = null;
 
     int nowscene = 0;
@@ -24,7 +24,7 @@ public class ClearChecker : MonoBehaviour
     void Start()
     {
         FadeManager.FadeIn();
-
+        BGM = GameObject.Find("BGM");
         nowscene = SceneManager.GetActiveScene().buildIndex;
         nextscene = nowscene + 1;
         ClearMesseage.SetActive(false);
