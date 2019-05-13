@@ -22,6 +22,7 @@ public class NoDestroyObj : MonoBehaviour
         }
 
         // 唯一のインスタンスなら、シーン遷移しても残す
+        this.transform.parent = null;
         DontDestroyOnLoad(this.gameObject);
     }
 

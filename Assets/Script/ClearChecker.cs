@@ -93,12 +93,12 @@ public class ClearChecker : MonoBehaviour
     public void StageSelectButton()
     {
         FadeManager.FadeOut(1);
-        BGM.GetComponent<NoDestroyObj>().SetDestroy(true);
+        Destroy(BGM);
     }
     public void NextButton()
     {
         FadeManager.FadeOut(nextscene);
-        BGM.GetComponent<NoDestroyObj>().SetDestroy(true);
+        
     }
     public void BuckButton()
     {
