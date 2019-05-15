@@ -31,7 +31,7 @@ RectTransform:
   m_Children:
   - {fileID: 3200057052725213951}
   m_Father: {fileID: 3200057053068890878}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -106,7 +106,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3200057053068890878}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -605,7 +605,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3200057053068890878}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -792,7 +792,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6692547875192927566}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3200057052887563233
 MonoBehaviour:
@@ -858,9 +858,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 4026560362362038276}
   - {fileID: 3200057052137791378}
   - {fileID: 7472282334962063540}
-  - {fileID: 4026560362362038276}
   - {fileID: 7397779999048855700}
   - {fileID: 7194595110521455618}
   - {fileID: 2813080320329588725}
@@ -1018,7 +1018,7 @@ Transform:
   m_LocalScale: {x: 0.26, y: 0.26, z: 1}
   m_Children: []
   m_Father: {fileID: 6692547875192927566}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
 --- !u!1818360608 &2206785296766469081
 PositionConstraint:
@@ -1538,8 +1538,8 @@ Transform:
   - {fileID: 8280379101206850142}
   - {fileID: 7455900397714254737}
   - {fileID: 3200057053068890878}
-  - {fileID: 7553307187660284075}
   - {fileID: 3200057052887563234}
+  - {fileID: 7553307187660284075}
   - {fileID: 3200057053505494299}
   - {fileID: 8420875293649693693}
   - {fileID: 1901209650340762125}

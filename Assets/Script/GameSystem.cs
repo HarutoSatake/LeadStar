@@ -10,12 +10,14 @@ public class GameSystem : MonoBehaviour
     [SerializeField]
     GameObject ClickParticle = null;
 
+    private AudioSource s_Effect;
+
     float Percentage = 0.0f;
     private void Start()
     {
         FadeManager.FadeIn();
 
-
+        s_Effect = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,11 +35,13 @@ public class GameSystem : MonoBehaviour
     // スタートボタンをクリックされた時
     void GameStart()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(1);
     }
     // エンドボタンをクリックされた時
     void GameEnd()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         UnityEngine.Application.Quit();
     }
 }
