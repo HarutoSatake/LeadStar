@@ -132,7 +132,7 @@ PrefabInstance:
     - target: {fileID: 1865665981211629649, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.32
+      value: 4.251
       objectReference: {fileID: 0}
     - target: {fileID: 1865665981211629649, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
@@ -192,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 1865665981211629662, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.6737053
+      value: 2.7226682
       objectReference: {fileID: 0}
     - target: {fileID: 1865665981211629662, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
@@ -419,7 +419,7 @@ PrefabInstance:
     - target: {fileID: 1865665981211629649, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2478
+      value: 4.242
       objectReference: {fileID: 0}
     - target: {fileID: 1865665981211629649, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
@@ -479,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 1865665981211629662, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.6558583
+      value: 2.66196
       objectReference: {fileID: 0}
     - target: {fileID: 1865665981211629662, guid: 8d115c87f2b38214bb45f7af5ffbab08,
         type: 3}
@@ -688,6 +688,16 @@ PrefabInstance:
         type: 3}
       propertyPath: start_time
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163328754495595430, guid: 29bf6223ef89ffe49b07383c35f86fc7,
+        type: 3}
+      propertyPath: MAX_SCALE_Y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904060250743715423, guid: 29bf6223ef89ffe49b07383c35f86fc7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29bf6223ef89ffe49b07383c35f86fc7, type: 3}
@@ -1076,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 9163328754495595430, guid: 29bf6223ef89ffe49b07383c35f86fc7,
         type: 3}
       propertyPath: MAX_SCALE_Y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29bf6223ef89ffe49b07383c35f86fc7, type: 3}
