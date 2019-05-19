@@ -248,7 +248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B2\u30FC\u30E0\u306B\u623B\u308B"
+  m_Text: Back to Game
 --- !u!1 &2046333743496104114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u3059\u3066\u30FC\u3058\u305B\u308C\u304F\u3068"
+  m_Text: StageSelect
 --- !u!1 &4441273242938476074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u306D\u304F\u3059\u3068\u3059\u3066\u30FC\u3058"
+  m_Text: NextStage
 --- !u!1 &8206548343016372758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2001,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u3082\u3046\u3044\u3061\u3069"
+  m_Text: Restart
 --- !u!1 &8897472196724655041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,6 +2500,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7557166260893461795}
     m_Modifications:
+    - target: {fileID: 4665361119072945360, guid: 54b855a9674157946b66ee5c110ea24c,
+        type: 3}
+      propertyPath: m_Name
+      value: StartParticle
+      objectReference: {fileID: 0}
     - target: {fileID: 946912420976624094, guid: 54b855a9674157946b66ee5c110ea24c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2565,11 +2570,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.6
       objectReference: {fileID: 0}
-    - target: {fileID: 4665361119072945360, guid: 54b855a9674157946b66ee5c110ea24c,
-        type: 3}
-      propertyPath: m_Name
-      value: StartParticle
-      objectReference: {fileID: 0}
     - target: {fileID: 640353044663312227, guid: 54b855a9674157946b66ee5c110ea24c,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
@@ -2595,6 +2595,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6692547875192927566}
     m_Modifications:
+    - target: {fileID: 8624227915387324369, guid: 3e409819f3ea24e4f91402b68263f6fa,
+        type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
     - target: {fileID: 8624227915387324372, guid: 3e409819f3ea24e4f91402b68263f6fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2649,11 +2654,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624227915387324369, guid: 3e409819f3ea24e4f91402b68263f6fa,
-        type: 3}
-      propertyPath: m_Name
-      value: BGM
       objectReference: {fileID: 0}
     - target: {fileID: 8624227915387324375, guid: 3e409819f3ea24e4f91402b68263f6fa,
         type: 3}
