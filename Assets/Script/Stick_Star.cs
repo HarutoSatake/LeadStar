@@ -13,6 +13,7 @@ public class Stick_Star : MonoBehaviour
     Vector2 vec = new Vector2(0, 0);
     private const float speeds = 20.0f;
     private bool isBulletStart = false;
+    private bool isMove = false;
 
     [SerializeField]
     int MAXHP = 0;
@@ -79,9 +80,6 @@ public class Stick_Star : MonoBehaviour
                     localScale.z / lossScale.z * defaultScale.z
             );
 
-        
-
-            
 
             this.isBulletStart = false;
             
@@ -96,52 +94,68 @@ public class Stick_Star : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isBulletStart)
+        if (Time.timeScale != 0f)
         {
-            rigid2D.isKinematic = false;
-            this.transform.parent = null;
-            Vector3 mousePositionVec3 = Input.mousePosition;
-            mousePositionVec3.z = Camera.main.transform.position.z;
+            if (Input.GetMouseButtonDown(0) && !isBulletStart)
+            {
+                rigid2D.isKinematic = false;
+                this.transform.parent = null;
+                Vector3 mousePositionVec3 = Input.mousePosition;
+                mousePositionVec3.z = Camera.main.transform.position.z;
 
-            // マウスポジションのスクリーンポジションをワールドポジションに変換
-            vec = Camera.main.ScreenToWorldPoint(mousePositionVec3);
+                // マウスポジションのスクリーンポジションをワールドポジションに変換
+                vec = Camera.main.ScreenToWorldPoint(mousePositionVec3);
 
-            // 三角関数をうんぬんかんぬん
-            float zRotation = Mathf.Atan2(vec.y - transform.position.y, vec.x - transform.position.x) * Mathf.Rad2Deg;
+                // 三角関数をうんぬんかんぬん
+                float zRotation = Mathf.Atan2(vec.y - transform.position.y, vec.x - transform.position.x) * Mathf.Rad2Deg;
 
-            transform.rotation = Quaternion.Euler(0f, 0f, zRotation);
-            // スピード確定
+                transform.rotation = Quaternion.Euler(0f, 0f, zRotation);
 
-            isBulletStart = true;
+                isBulletStart = true;
 
+
+
+                // クリックしたときのエフェクト
+                GameObject Particle = Instantiate(ClickParticle) as GameObject;
+                Vector3 screenpoint = Camera.main.WorldToScreenPoint(transform.position);
+                Vector3 a = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenpoint.z);
+                Particle.transform.position = Camera.main.ScreenToWorldPoint(a);
+            }
+            // 速度がある場合スター画像の方を回転させる
+            if (rigid2D.velocity != Vector2.zero && Star_Sp.activeSelf)
+            {
+                if (rigid2D.velocity.x > 0)
+                    this.transform.Rotate(0, 0, -10);
+                if (rigid2D.velocity.x < 0)
+                    this.transform.Rotate(0, 0, 10);
+            }
+
+            // 画面の下で判定して初期化
+            if (this.transform.position.y <= -15.0f || this.transform.position.y >= 15.0f || this.transform.position.x <= -10.0f || this.transform.position.x >= 10.0f || this.hp <= 0)
+            {
+                this.transform.position = m_ini_pos;
+
+                hp = 0;
+                // 動きを停止
+                rigid2D.velocity = Vector2.zero;
+                isBulletStart = false;
+            }
+
+            if (rigid2D.velocity == Vector2.zero)
+            {
+                isMove = false;
+            }
+        }
+    }
+    private void FixedUpdate()
+    {
+        // スター発射
+        if(isBulletStart && !isMove)
+        {
             this.rigid2D.AddForce(transform.right * speeds, ForceMode2D.Impulse);
-
-            // クリックしたときのエフェクト
-            GameObject Particle = Instantiate(ClickParticle) as GameObject;
-            Vector3 screenpoint = Camera.main.WorldToScreenPoint(transform.position);
-            Vector3 a = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenpoint.z);
-            Particle.transform.position = Camera.main.ScreenToWorldPoint(a);
+            isMove = true;
         }
-        // 速度がある場合スター画像の方を回転させる
-        if (rigid2D.velocity != Vector2.zero && Star_Sp.activeSelf)
-        {
-            if(rigid2D.velocity.x > 0)
-                this.transform.Rotate(0, 0, -10);
-            if(rigid2D.velocity.x < 0)
-                this.transform.Rotate(0, 0, 10);
-        }
-
-        // 画面の下で判定して初期化
-        if (this.transform.position.y <= -15.0f || this.transform.position.y >= 15.0f || this.transform.position.x <= -10.0f || this.transform.position.x >= 10.0f || this.hp <= 0)
-        {
-            this.transform.position = m_ini_pos;
-
-            hp = 0;
-            // 動きを停止
-            rigid2D.velocity = Vector2.zero;
-            isBulletStart = false;
-        }
-
+        // ゴール処理
         if (Goal.GetComponent<Goal>().GetFlg())
         {
             this.transform.position = m_ini_pos;
@@ -149,7 +163,6 @@ public class Stick_Star : MonoBehaviour
             isBulletStart = false;
         }
     }
-
     public int GetHP()
     {
         return hp;

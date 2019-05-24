@@ -19,6 +19,8 @@ public class ClearChecker : MonoBehaviour
 
     int nowscene = 0;
     int nextscene = 0;
+    bool isPause = false;
+    bool isGameEnd = false;
     
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,36 @@ public class ClearChecker : MonoBehaviour
         }
 
         // ポーズ処理
+        if(Input.GetKeyDown(KeyCode.Escape) && !isGameEnd)
+        {
+            // ポーズ中の場合TimeScaleを元に戻す
+            if (isPause)
+            {
+                Time.timeScale = 1f;
+                // ボタン非活性化
+                Back_Button.SetActive(false);
+                Stage_Button.SetActive(false);
+                Restart_Button.SetActive(false);
 
+                isPause = false;
+            }
+            // ポーズ中ではなかった場合TImeScaleを0にする
+            else if (!isPause)
+            {
+                Time.timeScale = 0f;
+                // ボタン活性化
+                Back_Button.SetActive(true);
+                Stage_Button.SetActive(true);
+                Restart_Button.SetActive(true);
+                // 位置調整
+                Restart_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, -155.0f);
+                Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -360.0f);
+                Back_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, 38.0f);
+                isPause = true;
+            }
+            
+            
+        }
         // ゲームクリア処理
         if(Goal.GetComponent<Goal>().GetFlg())
         {
@@ -66,7 +97,7 @@ public class ClearChecker : MonoBehaviour
             Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -360.0f);
             Next_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, 38.0f);
 
-            
+            isGameEnd = true;
             
         }
         // ゲーム失敗時
@@ -83,26 +114,37 @@ public class ClearChecker : MonoBehaviour
             Restart_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, 38.0f);
             Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -155.0f);
 
+            isGameEnd = true;
         }
     }
 
     public void RestartButton()
     {
+        Time.timeScale = 1f;
         FadeManager.FadeOut(nowscene);
     }
     public void StageSelectButton()
     {
+        Time.timeScale = 1f;
         FadeManager.FadeOut(1);
         Destroy(BGM);
     }
     public void NextButton()
     {
+        Time.timeScale = 1f;
         FadeManager.FadeOut(nextscene);
         
     }
     public void BuckButton()
     {
+        Time.timeScale = 1f;
 
+        // ボタン非活性化
+        Back_Button.SetActive(false);
+        Stage_Button.SetActive(false);
+        Restart_Button.SetActive(false);
+
+        isPause = false;
     }
 
     //public void TitleCall()

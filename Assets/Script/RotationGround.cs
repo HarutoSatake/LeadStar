@@ -18,6 +18,7 @@ public class RotationGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale != 0f)
         transform.Rotate(0.0f, 0.0f, speed);
     }
 }

@@ -12,7 +12,6 @@ public class GameSystem : MonoBehaviour
 
     private AudioSource s_Effect;
 
-    float Percentage = 0.0f;
     private void Start()
     {
         FadeManager.FadeIn();
