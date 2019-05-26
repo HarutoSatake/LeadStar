@@ -14,7 +14,8 @@ public class ClearChecker : MonoBehaviour
     [SerializeField] GameObject Next_Button = null;
     [SerializeField] GameObject Stage_Button = null;
     [SerializeField] GameObject Back_Button = null;
-     GameObject BGM = null;
+    GameObject BGM = null;
+    GameObject Pointer = null;
     //[SerializeField] GameObject E_Button = null;
 
     int nowscene = 0;
@@ -27,6 +28,8 @@ public class ClearChecker : MonoBehaviour
     {
         FadeManager.FadeIn();
         BGM = GameObject.Find("BGM");
+        Pointer = GameObject.Find("Pointer");
+
         nowscene = SceneManager.GetActiveScene().buildIndex;
         nextscene = nowscene + 1;
         ClearMesseage.SetActive(false);
@@ -62,6 +65,7 @@ public class ClearChecker : MonoBehaviour
                 Back_Button.SetActive(false);
                 Stage_Button.SetActive(false);
                 Restart_Button.SetActive(false);
+                Pointer.SetActive(true);
 
                 isPause = false;
             }
@@ -73,6 +77,7 @@ public class ClearChecker : MonoBehaviour
                 Back_Button.SetActive(true);
                 Stage_Button.SetActive(true);
                 Restart_Button.SetActive(true);
+                Pointer.SetActive(false);
                 // 位置調整
                 Restart_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Restart_Button, 0.0f, -155.0f);
                 Stage_Button.GetComponent<RectTransform>().anchoredPosition = RectPos(Stage_Button, 0.0f, -360.0f);

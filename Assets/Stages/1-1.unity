@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -172,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 2764491114040827344, guid: 552c557af7126bd45a827a9f68ce419d,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 112387813917086158, guid: 552c557af7126bd45a827a9f68ce419d,
         type: 3}
@@ -278,6 +278,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557166260893461795, guid: 552c557af7126bd45a827a9f68ce419d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557166260893461795, guid: 552c557af7126bd45a827a9f68ce419d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552c557af7126bd45a827a9f68ce419d, type: 3}
@@ -741,6 +751,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8624227915387324369, guid: 3e409819f3ea24e4f91402b68263f6fa,
+        type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624227915387324369, guid: 3e409819f3ea24e4f91402b68263f6fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8624227915387324372, guid: 3e409819f3ea24e4f91402b68263f6fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,16 +814,6 @@ PrefabInstance:
     - target: {fileID: 8624227915387324372, guid: 3e409819f3ea24e4f91402b68263f6fa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624227915387324369, guid: 3e409819f3ea24e4f91402b68263f6fa,
-        type: 3}
-      propertyPath: m_Name
-      value: BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624227915387324369, guid: 3e409819f3ea24e4f91402b68263f6fa,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8624227915387324375, guid: 3e409819f3ea24e4f91402b68263f6fa,

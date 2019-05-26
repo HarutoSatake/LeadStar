@@ -9,14 +9,48 @@ public class StageSelect : MonoBehaviour
     [SerializeField]
     RectTransform Stage1 = null;
     [SerializeField]
-    GameObject Stage2 = null;
+    RectTransform Stage2 = null;
+
+    // 今選択されているステージ
+    RectTransform NowStage;
+    // 次に選択されるステージ
+    RectTransform NextStage;
+    // 前に選択されるステージ
+    RectTransform PrevStage;
+    // 状態
+    ChangeState State = ChangeState.CHANGING;
+    enum ChangeState
+    {
+        SELECTING,
+        CHANGING,
+    }
     private void Start()
     {
+        NowStage = Stage1;
     }
     private void Update()
     {
-       
-        Stage1.localPosition += new Vector3(1, 0, 0);
+        switch(State)
+        {
+            case ChangeState.SELECTING:
+                Cursor.lockState = CursorLockMode.None;
+                Debug.Log("せれくてぃんぐなう");
+                break;
+            case ChangeState.CHANGING:
+                Cursor.lockState = CursorLockMode.Locked;
+                if (Stage1.localPosition.x < 1855)
+                {
+                    Stage1.localPosition += new Vector3(35f, 0f, 0f);
+                }
+                else if (Stage1.localPosition.x == 1855)
+                {
+                    State = ChangeState.SELECTING;
+                }
+                Debug.Log("ちぇんじんぐなう");
+                break;
+
+        }
+        
     }
     public void First_1()
     {
