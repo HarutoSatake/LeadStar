@@ -137,6 +137,8 @@ public class ClearChecker : MonoBehaviour
     public void NextButton()
     {
         Time.timeScale = 1f;
+        if(nextscene == 12)
+            Destroy(BGM);
         FadeManager.FadeOut(nextscene);
         
     }

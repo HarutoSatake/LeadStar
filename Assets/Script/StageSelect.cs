@@ -14,43 +14,71 @@ public class StageSelect : MonoBehaviour
     // 今選択されているステージ
     RectTransform NowStage;
     // 次に選択されるステージ
-    RectTransform NextStage;
-    // 前に選択されるステージ
-    RectTransform PrevStage;
+    RectTransform SubStage;
     // 状態
-    ChangeState State = ChangeState.CHANGING;
+    ChangeState State = ChangeState.SELECTING;
+    // ボタンを変えるタイミング
+    bool ChangeFlg = false;
+    float count = 0;
     enum ChangeState
     {
         SELECTING,
-        CHANGING,
+        WAITING,
+        PREVCHANGING,
+        NEXTCHANGING
     }
     private void Start()
     {
         NowStage = Stage1;
+        SubStage = Stage2;
     }
     private void Update()
     {
-        switch(State)
+        if (ChangeFlg)
         {
-            case ChangeState.SELECTING:
-                Cursor.lockState = CursorLockMode.None;
-                Debug.Log("せれくてぃんぐなう");
-                break;
-            case ChangeState.CHANGING:
-                Cursor.lockState = CursorLockMode.Locked;
-                if (Stage1.localPosition.x < 1855)
-                {
-                    Stage1.localPosition += new Vector3(35f, 0f, 0f);
-                }
-                else if (Stage1.localPosition.x == 1855)
-                {
-                    State = ChangeState.SELECTING;
-                }
-                Debug.Log("ちぇんじんぐなう");
-                break;
+            switch (State)
+            {
+                case ChangeState.SELECTING:
+                    Cursor.lockState = CursorLockMode.None;
+                    break;
+                case ChangeState.PREVCHANGING:
+                    Cursor.lockState = CursorLockMode.Locked;
+                    if (NowStage.localPosition.x < 1855)
+                    {
+                        NowStage.localPosition += new Vector3(35f, 0f, 0f);
+                    }
+                    if (NowStage.localPosition.x >= 1855)
+                    {
+                        State = ChangeState.WAITING;
+                    }
+                    break;
+                case ChangeState.WAITING:
+                    // 時間まで静止
+                    if (count >= 0.5f)
+                    {
+                        count = 0;
+                        State = ChangeState.NEXTCHANGING;
+                    }
+                    count += Time.deltaTime;
+                    break;
+                case ChangeState.NEXTCHANGING:
+                    if (SubStage.localPosition.x > 0)
+                    {
+                        SubStage.localPosition += new Vector3(-35f, 0f, 0f);
+                    }
+                    if (SubStage.localPosition.x <= 0)
+                    {
+                        // ステージ関係の入れ替え
+                        RectTransform w;
+                        w = NowStage;
+                        NowStage = SubStage;
+                        SubStage = w;
 
+                        State = ChangeState.SELECTING;
+                    }
+                    break;
+            }
         }
-        
     }
     public void First_1()
     {
@@ -72,8 +100,34 @@ public class StageSelect : MonoBehaviour
     {
         FadeManager.FadeOut(6);
     }
+    public void Second_1()
+    {
+        FadeManager.FadeOut(7);
+    }
+    public void Second_2()
+    {
+        FadeManager.FadeOut(8);
+
+    }
+    public void Second_3()
+    {
+        FadeManager.FadeOut(9);
+    }
+    public void Second_4()
+    {
+        FadeManager.FadeOut(10);
+    }
+    public void Second_5()
+    {
+        FadeManager.FadeOut(11);
+    }
     public void GoBackTitle()
     {
         FadeManager.FadeOut(0);
+    }
+    public void Change()
+    {
+        ChangeFlg = true;
+        State = ChangeState.PREVCHANGING;
     }
 }

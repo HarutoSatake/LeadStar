@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1937021956557346994}
   m_Layer: 0
   m_Name: R_RotationGround
-  m_TagString: Wall
+  m_TagString: Reflect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
