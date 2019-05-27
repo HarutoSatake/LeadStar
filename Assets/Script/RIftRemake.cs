@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RIft : MonoBehaviour
+public class RIftRemake : MonoBehaviour
 {
     [SerializeField]
     bool Move_Y = false;
@@ -14,7 +14,7 @@ public class RIft : MonoBehaviour
     float Second = 0.0f;
 
     Vector3 Ini_pos;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,8 @@ public class RIft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Move_Y == false)
+            transform.position += Vector3.right * .1f;
         if (Time.timeScale != 0)
         {
             // sinグラフで反復運動
