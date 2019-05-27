@@ -27,10 +27,13 @@ public class RIft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Move_Y == false)
+            transform.position += Vector3.right * .1f;
         if (Time.timeScale != 0)
         {
             // sinグラフで反復運動
             float f = 1.0f / Second;
+            Debug.Log(Time.time);
             float sin = Mathf.Sin(2 * Mathf.PI * f * Time.time);
             Vector3 pos = this.transform.position;
             if (Move_Y)

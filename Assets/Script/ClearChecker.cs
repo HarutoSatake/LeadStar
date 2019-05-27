@@ -22,7 +22,7 @@ public class ClearChecker : MonoBehaviour
     int nextscene = 0;
     bool isPause = false;
     bool isGameEnd = false;
-    
+    private AudioSource s_Effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +40,7 @@ public class ClearChecker : MonoBehaviour
         Stage_Button.SetActive(false);
         //E_Button.SetActive(false);
         Back_Button.SetActive(false);
-
+        s_Effect = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,6 +73,7 @@ public class ClearChecker : MonoBehaviour
             else if (!isPause)
             {
                 Time.timeScale = 0f;
+                s_Effect.PlayOneShot(s_Effect.clip);
                 // ボタン活性化
                 Back_Button.SetActive(true);
                 Stage_Button.SetActive(true);
@@ -125,17 +126,20 @@ public class ClearChecker : MonoBehaviour
 
     public void RestartButton()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         Time.timeScale = 1f;
         FadeManager.FadeOut(nowscene);
     }
     public void StageSelectButton()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         Time.timeScale = 1f;
         FadeManager.FadeOut(1);
         Destroy(BGM);
     }
     public void NextButton()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         Time.timeScale = 1f;
         if(nextscene == 12)
             Destroy(BGM);
@@ -144,6 +148,7 @@ public class ClearChecker : MonoBehaviour
     }
     public void BuckButton()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         Time.timeScale = 1f;
 
         // ボタン非活性化

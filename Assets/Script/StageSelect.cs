@@ -20,6 +20,8 @@ public class StageSelect : MonoBehaviour
     // ボタンを変えるタイミング
     bool ChangeFlg = false;
     float count = 0;
+
+    private AudioSource s_Effect;
     enum ChangeState
     {
         SELECTING,
@@ -31,6 +33,8 @@ public class StageSelect : MonoBehaviour
     {
         NowStage = Stage1;
         SubStage = Stage2;
+
+        s_Effect = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -82,51 +86,63 @@ public class StageSelect : MonoBehaviour
     }
     public void First_1()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(2);
     }
     public void First_2()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(3);
     }
     public void First_3()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(4);
     }
     public void First_4()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(5);
     }
     public void First_5()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(6);
     }
     public void Second_1()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(7);
     }
     public void Second_2()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(8);
 
     }
     public void Second_3()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(9);
     }
     public void Second_4()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(10);
     }
     public void Second_5()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(11);
     }
     public void GoBackTitle()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         FadeManager.FadeOut(0);
     }
     public void Change()
     {
+        s_Effect.PlayOneShot(s_Effect.clip);
         ChangeFlg = true;
         State = ChangeState.PREVCHANGING;
     }
