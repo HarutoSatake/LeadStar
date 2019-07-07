@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1799944802099399357}
   - component: {fileID: 1799944802099399356}
-  - component: {fileID: 1799944802099399359}
   - component: {fileID: 1799944802099459394}
   - component: {fileID: 4516557408413751845}
-  - component: {fileID: 7244415663076820394}
+  - component: {fileID: 189131406221642252}
   m_Layer: 0
   m_Name: RIft
   m_TagString: Wall
@@ -83,22 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1799944802099399359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799944802099399358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96671694f7837d546aa6002057a8aea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Move_Y: 0
-  Mirror: 0
-  MoveSIze: 10
-  Second: 3
 --- !u!61 &1799944802099459394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5013905, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7244415663076820394
+--- !u!114 &189131406221642252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,6 +143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1799944802099399358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3be0da263bc19547a5a3f0ddcf44872, type: 3}
+  m_Script: {fileID: 11500000, guid: 96671694f7837d546aa6002057a8aea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Move_Y: 0
+  Mirror: 0
+  MoveSIze: 10
+  Second: 1

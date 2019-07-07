@@ -27,6 +27,7 @@ public class RIft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Time.timeScale != 0)
         {
             // sinグラフで反復運動
